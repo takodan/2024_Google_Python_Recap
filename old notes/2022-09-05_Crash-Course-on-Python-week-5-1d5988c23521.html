@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Crash Course on Python week 5</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Crash Course on Python week 5</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+object-oriented programming (OOP)
+</section>
+<section data-field="body" class="e-content">
+<section name="cb47" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="3df9" id="3df9" class="graf graf--h4 graf--leading">Crash Course on Python week 5</h4><h4 name="84a9" id="84a9" class="graf graf--h4 graf-after--h4">object-oriented programming (OOP)</h4><p name="57ef" id="57ef" class="graf graf--p graf-after--h4"><em class="markup--em markup--p-em">class: defined an idea<br>object/instance: an instance of the class<br>attributes: characteristics associated to a class(type)<br>methods: function associated to a class(type)</em></p><pre name="f5c0" id="f5c0" class="graf graf--pre graf-after--p">dir(&lt;object&gt;) # print all the attributes and methods<br>help(&lt;object&gt;) # return the documentation for the class</pre><pre name="c033" id="c033" class="graf graf--pre graf-after--pre">class &lt;Name&gt;: # names recommend start with capital letter<br>    pass      # placeholder in any block</pre><pre name="d80c" id="d80c" class="graf graf--pre graf-after--pre">class Name:<br>    attribute1 = &quot;&quot;<br>    attribute2 = &quot;default&quot;</pre><pre name="e321" id="e321" class="graf graf--pre graf-after--pre">name1 = Name<br>name1.attribute1 = &quot;wah&quot;</pre><pre name="cbd7" id="cbd7" class="graf graf--pre graf-after--pre">print(name1.attribute1, name1.attribute2) # &quot;wah default&quot;</pre><p name="d6e8" id="d6e8" class="graf graf--p graf-after--pre"><em class="markup--em markup--p-em">dot notation(.): to access methods or attributes</em></p><h4 name="a3e4" id="a3e4" class="graf graf--h4 graf-after--p">classes and methods</h4><pre name="f6cc" id="f6cc" class="graf graf--pre graf-after--h4">class Name:<br>    attribute1 = 0<br>    def method1(self): #first parameter must be object it self<br>        self.attribute1*7</pre><pre name="46a1" id="46a1" class="graf graf--pre graf-after--pre">name1 = Name()<br>name1.attribute1 = 3<br>print(name1.method1()) # 21</pre><p name="0d58" id="0d58" class="graf graf--p graf-after--pre">instance variable: variables that have different values for different instances(object)</p><p name="aa4f" id="aa4f" class="graf graf--p graf-after--p">constructors (special methods)</p><pre name="1741" id="1741" class="graf graf--pre graf-after--p">class Name:<br>    def __init__(self, attribute1, attribute2): # always call &lt;init&gt;<br>        self.attribute1 = attribute1<br>        self.attribute2 = attribute2<br>name1 = Name(7, 3)<br>print(name1.attribute1) # 7</pre><p name="278e" id="278e" class="graf graf--p graf-after--pre">str (special methods)</p><pre name="6fd1" id="6fd1" class="graf graf--pre graf-after--p">class Name:<br>    attribute1 = 0<br>    def __str__(self): #when print(Name), call this method<br>        return &quot;I say {} wah.&quot;.format(self.attribute1)<br>name1 = Name()<br>name1.attribute1 = 7<br>print(name1) # &quot;I say 7 wah.&quot;</pre><p name="531a" id="531a" class="graf graf--p graf-after--pre">documentation (docstring)</p><pre name="81a0" id="81a0" class="graf graf--pre graf-after--p">class Name:<br>    &quot;&quot;&quot;just a class&quot;&quot;&quot; # docstring<br>    def method1(self):<br>        &quot;&quot;&quot; just print wah&quot;&quot;&quot; # docstring<br>        print(&quot;wah&quot;)</pre><pre name="613b" id="613b" class="graf graf--pre graf-after--pre">help(Name) # show the docstring with class and method/function</pre><p name="c8b3" id="c8b3" class="graf graf--p graf-after--pre">classes and methods cheat sheet</p><h4 name="cdbb" id="cdbb" class="graf graf--h4 graf-after--p">inheritance</h4><pre name="f926" id="f926" class="graf graf--pre graf-after--h4">class A:<br>    def __init__(self, num1, num2):<br>        self.num1 = num1<br>        self.num2 = num2<br>class B(A):<br>    pass<br>class C(A):<br>    num1 = 10</pre><pre name="9297" id="9297" class="graf graf--pre graf-after--pre">b_object = B(3, 4)<br>print(b_object.num1) # 3</pre><pre name="a141" id="a141" class="graf graf--pre graf-after--pre">c_object = C(5, 6)<br>print(c_object.num1) #5</pre><p name="d884" id="d884" class="graf graf--p graf-after--pre"><em class="markup--em markup--p-em">composition: use other classes in the class<br></em>(more information is needed)</p><p name="b910" id="b910" class="graf graf--p graf-after--p">modules</p><pre name="1a61" id="1a61" class="graf graf--pre graf-after--p">import random<br>random.randint(1, 10) #gererating a random number between 1 to 10</pre><pre name="ae80" id="ae80" class="graf graf--pre graf-after--pre graf--trailing">import datetime<br>now = datetime.datetime.now()</pre></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/1d5988c23521"><time class="dt-published" datetime="2022-09-05T12:11:18.666Z">September 5, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/crash-course-on-python-week-5-1d5988c23521" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>

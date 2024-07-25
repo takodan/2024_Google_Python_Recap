@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Troubleshooting and Debugging Techniques week 2</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Troubleshooting and Debugging Techniques week 2</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+identify the bottleneck
+</section>
+<section data-field="body" class="e-content">
+<section name="2489" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="2ada" id="2ada" class="graf graf--h4 graf--leading">Troubleshooting and Debugging Techniques week 2</h4><p name="14db" id="14db" class="graf graf--p graf-after--h4">identify the bottleneck</p><pre name="05b2" id="05b2" class="graf graf--pre graf-after--p">$ top #show current load information<br>$ iotop #io<br>$ iftop #network</pre><p name="a96d" id="a96d" class="graf graf--p graf-after--pre">macOS: activity monitor<br>windows: resource monitor, performance monitor</p><p name="f39a" id="f39a" class="graf graf--p graf-after--p">cache: stores data in a form that is faster to access.<br>swapping: if the ram is full, put data not currently in use into a disk.</p><p name="c87e" id="c87e" class="graf graf--p graf-after--p">memory leak: the memory that is no longer needed is not released.</p><p name="901a" id="901a" class="graf graf--p graf-after--p">malicious software</p><p name="075c" id="075c" class="graf graf--p graf-after--p">Apache Bench: a tool for checking a website.</p><pre name="7c65" id="7c65" class="graf graf--pre graf-after--p">$ nice<br>$ renice &lt;priority&gt; &lt;processID&gt;<br>$ pidof &lt;name&gt; #return process ID<br>$ for pid in $(pidof &lt;name&gt;); do renice &lt;priority&gt; $pi; done</pre><pre name="98e7" id="98e7" class="graf graf--pre graf-after--pre">$ ps ax #all running processes<br>$ ps ax | less<br>/&lt;name&gt; #search in less<br>$ locate &lt;filename&gt;<br>$ killall -stop $kill but not completely<br>$ while kill -CONT $pid; do sleep 1; done<br>#succeed as long as process exits</pre><p name="04a5" id="04a5" class="graf graf--p graf-after--pre">daemon: a computer program that runs as a background process.</p><p name="3cef" id="3cef" class="graf graf--p graf-after--p"><a href="https://www.brendangregg.com/linuxperf.html" data-href="https://www.brendangregg.com/linuxperf.html" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.brendangregg.com/linuxperf.html</a></p><p name="8beb" id="8beb" class="graf graf--p graf-after--p">Trying to optimize every second out of a script is probably not worth your time.</p><p name="7c32" id="7c32" class="graf graf--p graf-after--p">profiler: a tool that measures the resources that our code is using.<br>gprof (a tool) for c<br>cProfile ( a module) for Python</p><p name="373e" id="373e" class="graf graf--p graf-after--p">run faster == less work.<br>expensive actions: can take a long time to complete.</p><ol class="postList"><li name="5922" id="5922" class="graf graf--li graf-after--p">using the right data structures:<br>list: access elements by position or iterate through all the elements.<br>dictionary: use hashing: fast for searching keys.</li><li name="788c" id="788c" class="graf graf--li graf-after--li">double-check creating structure copies is really needed.</li><li name="2ac2" id="2ac2" class="graf graf--li graf-after--li">make sure to iterate elements only when you really need them to be.</li><li name="1df0" id="1df0" class="graf graf--li graf-after--li">break out of the loop once you’ve found what you were looking for.</li><li name="be9c" id="be9c" class="graf graf--li graf-after--li">check how long should the cache be recalculating.</li><li name="9048" id="9048" class="graf graf--li graf-after--li">keeping results to avoid recalculating.</li></ol><pre name="d9b8" id="d9b8" class="graf graf--pre graf-after--li">$ time &lt;app&gt;<br>#return real: actual time, user: in user space, sys: system-level</pre><p name="5e59" id="5e59" class="graf graf--p graf-after--pre"><a href="https://github.com/vpelletier/pprofile" data-href="https://github.com/vpelletier/pprofile" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://github.com/vpelletier/pprofile</a><br><a href="https://valgrind.org/" data-href="https://valgrind.org/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://valgrind.org/</a><br><a href="https://kcachegrind.sourceforge.net/html/Home.html" data-href="https://kcachegrind.sourceforge.net/html/Home.html" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://kcachegrind.sourceforge.net/html/Home.html</a><br><a href="https://en.wikipedia.org/wiki/Profiling_%28computer_programming%29" data-href="https://en.wikipedia.org/wiki/Profiling_(computer_programming)" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://en.wikipedia.org/wiki/Profiling_(computer_programming)</a></p><p name="29cb" id="29cb" class="graf graf--p graf-after--p">concurrency and parallelism</p><p name="a2de" id="a2de" class="graf graf--p graf-after--p">threads: run parallel task inside a process</p><p name="f6e6" id="f6e6" class="graf graf--p graf-after--p">threading or asyncIO modules.</p><p name="404b" id="404b" class="graf graf--p graf-after--p"><a href="https://realpython.com/python-concurrency/" data-href="https://realpython.com/python-concurrency/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://realpython.com/python-concurrency/</a></p><p name="e1b1" id="e1b1" class="graf graf--p graf-after--p">PostgreSQL, MySQL, SQLite, Memcached, Varnish cache</p><pre name="1544" id="1544" class="graf graf--pre graf-after--p">rsync &lt;options&gt; &lt;source-files-dir&gt; &lt;destination&gt;</pre><p name="39e5" id="39e5" class="graf graf--p graf-after--pre"><a href="https://en.wikipedia.org/wiki/Rsync" data-href="https://en.wikipedia.org/wiki/Rsync" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://en.wikipedia.org/wiki/Rsync</a></p><p name="1f21" id="1f21" class="graf graf--p graf-after--p graf--trailing">need more practice on multiprocessing Python module.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/f6bcc1b8ee0c"><time class="dt-published" datetime="2022-09-27T11:37:37.321Z">September 27, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/troubleshooting-and-debugging-techniques-week-2-f6bcc1b8ee0c" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Using Python to Interact with the Operating System Week 6</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Using Python to Interact with the Operating System Week 6</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Bash: Linux Command Line Shell
+</section>
+<section data-field="body" class="e-content">
+<section name="a059" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="0269" id="0269" class="graf graf--h4 graf--leading">Using Python to Interact with the Operating System Week 6</h4><h4 name="dd79" id="dd79" class="graf graf--h4 graf-after--h4">Bash: Linux Command Line Shell</h4><p name="081d" id="081d" class="graf graf--p graf-after--h4">Managing files and directories<br>cd &lt;directory&gt;: changes the current working directory to the specified one<br>pwd: prints the current working directory<br>ls: lists the contents of the current directory<br>ls &lt;directory&gt;: lists the contents of the received directory<br>ls -l: lists the additional information for the contents of the directory<br>ls -a: lists all files, including those hidden<br>ls -la: applies both the -l and the -a flags<br>mkdir &lt;directory&gt;: creates the directory with the received name<br>rmdir &lt;directory&gt;: deletes the directory with the received name (if empty)<br>cp &lt;old_name&gt; &lt;new_name&gt;: copies old_name into new_name<br>mv &lt;old_name&gt; &lt;new_name&gt;: moves old_name into new_name<br>rm &lt;file_name&gt;: remove file<br>touch &lt;file_name&gt;: creates an empty file or updates the modified time if it exists<br>chmod &lt;modifiers&gt; &lt;files&gt;: change the permissions for the files according to the provided modifiers; we’ve seen +x to make the file executable<br>chown &lt;user files&gt;: changes the owner of the files to the given user<br>chgrp &lt;group files&gt;: changes the group of the files to the given group</p><p name="e45a" id="e45a" class="graf graf--p graf-after--p">&lt;..&gt;: parent directory<br>&lt;.&gt;: current directory<br>&lt;*&gt;: all the files in the current directory</p><p name="ac8e" id="ac8e" class="graf graf--p graf-after--p">Operating with the content of files<br>cat &lt;file&gt;: shows the content of the file through standard output<br>wc &lt;file&gt;: counts the number of characters, words, and lines in the given file; can also count the same values of whatever it receives via stdin<br>file &lt;file&gt;: prints the type of the given file, as recognized by the operating system<br>head file: shows the first 10 lines of the given file<br>tail file: shows the last 10 lines of the given file<br>less file: scrolls through the contents of the given file (press “q” to quit)<br>sort &lt;file&gt;: sorts the lines of the file alphabetically<br>cut: <a href="https://www.geeksforgeeks.org/cut-command-linux-examples/" data-href="https://www.geeksforgeeks.org/cut-command-linux-examples/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.geeksforgeeks.org/cut-command-linux-examples/</a></p><p name="98a7" id="98a7" class="graf graf--p graf-after--p">Additional commands<br>echo “message”: prints the message to standard output<br>date: prints the current date<br>who: prints the list of users currently logged into the computer<br>man command: shows the manual page of the given command; manual pages &lt;contain&gt; a lot of information explaining how to use each command (press “q” to quit)<br>uptime: shows how long the computer has been running<br>free: shows the amount of unused memory on the current system<br>tr&lt;parameter1&gt;&lt;parameter2&gt;: translate parameter1 to parameter2 in the input<br>grep &lt;name&gt;: search for &lt;name&gt; in input and print it</p><p name="01af" id="01af" class="graf graf--p graf-after--p">Managing streams<br>These are the redirectors that we can use to take control of the streams of our programs<br>command &gt; file: redirects standard output, overwrites the file<br>command &gt;&gt; file: redirects standard output, appends to file<br>command &lt; file: redirects standard input from the file<br>command 2&gt; file: redirects standard error to file<br>command1 | command2: connects the output of command1 to the input of command2</p><p name="b44b" id="b44b" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“|”: pipe</p><p name="084d" id="084d" class="graf graf--p graf-after--p">Operating with processes<br>Ctrl-c: SIGING, finish the process cleanly<br>Ctrl-z: SIGSTOP, temporary stop, fg to start again<br>ps: lists the processes executing in the current terminal for the current user (can use for searching PID)<br>ps ax: lists all processes currently executing for all users<br>ps e: shows the environment for the processes listed<br>kill PID: sends the SIGTERM signal to the process identified by PID(terminate the process)<br>fg: causes a job that was stopped or in the background to return to the foreground<br>bg: causes a job that was stopped to go to the background<br>jobs: lists the jobs currently running or stopped<br>top: shows the processes currently using the most CPU time (press “q” to quit)</p><h4 name="e146" id="e146" class="graf graf--h4 graf-after--p">Bash Scripting</h4><pre name="9b50" id="9b50" class="graf graf--pre graf-after--h4">echo # print empty line<br>echo &quot;&lt;string&gt; $&lt;command&gt;&quot;</pre><pre name="c752" id="c752" class="graf graf--pre graf-after--pre">&lt;name&gt;=&lt;value&gt; #no space beside =</pre><pre name="c856" id="c856" class="graf graf--pre graf-after--pre">&lt;format&gt;*&lt;format&gt; # all files in current directory match format<br>&lt;format&gt;???&lt;format&gt; # all files with amount of ? characters</pre><pre name="4ac1" id="4ac1" class="graf graf--pre graf-after--pre">if &lt;command&gt;; then <br>&lt;code&gt; # if command exit status == 0 do it<br>else<br>&lt;code&gt;<br>fi</pre><pre name="edcc" id="edcc" class="graf graf--pre graf-after--pre">test&lt;condition&gt; # exit status == 0 if True</pre><p name="46bf" id="46bf" class="graf graf--p graf-after--pre"><a href="https://www.shellscript.sh/" data-href="https://www.shellscript.sh/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.shellscript.sh/</a></p><pre name="11f5" id="11f5" class="graf graf--pre graf-after--p">n=1<br>command=$1 #first command line argument<br>while ! $command &amp;&amp; [ $n -le 5 ]; do # until command=0 or n=5<br>  sleep $n # wait a moment<br>  ((n+=1))<br>done</pre><pre name="bc3f" id="bc3f" class="graf graf--pre graf-after--pre">basename index.HTM .HTM #return index<br>for file in *.HTM; do<br>  neam=$(basename &quot;$file&quot; .HTM) # &quot;&quot; make sure spaces included<br>  echo mv &quot;$file&quot; &quot;$name.html&quot; # not really modify <br>done</pre><pre name="24cb" id="24cb" class="graf graf--pre graf-after--pre">cut -d&#39; &#39; -f5- &lt;file&gt; | sort | uniq -c |sort -nr | head -5<br># cut: cut file line -d: by &#39; &#39; -f5- print field(column) 5 and after<br># sort:sort by alphabetical<br># unique: display each match once and -c count times it occurred<br># sort -nr: numerically and reverse order<br># head: print first -5: 5 line (default is 10)</pre><p name="ce82" id="ce82" class="graf graf--p graf-after--pre graf--trailing">use Bash when a task is not too complex.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/6c2332e877b8"><time class="dt-published" datetime="2022-09-18T06:43:06.142Z">September 18, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/using-python-to-interact-with-the-operating-system-week-6-6c2332e877b8" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>

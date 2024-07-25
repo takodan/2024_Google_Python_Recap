@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Crash Course on Python week 4</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Crash Course on Python week 4</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+string
+</section>
+<section data-field="body" class="e-content">
+<section name="d9d4" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="97a5" id="97a5" class="graf graf--h4 graf--leading">Crash Course on Python week 4</h4><h4 name="a1cb" id="a1cb" class="graf graf--h4 graf-after--h4">string</h4><p name="1d64" id="1d64" class="graf graf--p graf-after--h4"><em class="markup--em markup--p-em">concatenating: like string + string</em></p><pre name="5c17" id="5c17" class="graf graf--pre graf-after--p">name = &quot;Jaylen&quot;<br>print(name[0]) # J<br>print(name[-1]) # n</pre><p name="760f" id="760f" class="graf graf--p graf-after--pre"><em class="markup--em markup--p-em">slice: substring</em></p><pre name="3b79" id="3b79" class="graf graf--pre graf-after--p">color = &quot;Orange&quot;<br>color[1:4] # ran<br>color[:4] #Oran</pre><p name="30a3" id="30a3" class="graf graf--p graf-after--pre">strings in python are immutable.<br><em class="markup--em markup--p-em">method: a function associated with a specific class</em></p><pre name="0294" id="0294" class="graf graf--pre graf-after--p">color.index(&quot;a&quot;) # 2 (only return first position that matches)<br>color.index(&quot;z&quot;) # ValueError<br>&quot;z&quot; in color # False</pre><pre name="b518" id="b518" class="graf graf--pre graf-after--pre">str = &quot; String &quot;<br>str.lower() # &quot; string &quot;<br>str.upper() # &quot; STRING &quot;<br>str.strip() # &quot;String&quot;, remove whitespace includs space, tab, and newline characters<br>str.lstrip() # &quot;String &quot;<br>str.rstrip() # &quot; String&quot;<br>str.count(&quot;g&quot;) # 1<br>str.endswith(&quot;ing&quot;) # True<br>str.isnumeric() #False<br>str.isalpha() #True<br>&quot;...&quot;.join([&quot;wah&quot;, &quot;ha&quot;, &quot;ha&quot;]) # &quot;wah...ha...ha&quot;<br>str2 = str.replace(&quot;tr&quot;, &quot;p&quot;) #sping<br>&quot;wah ha ha&quot;.split() # [&quot;wah&quot;, &quot;ha&quot;, &quot;ha&quot;]</pre><p name="1b12" id="1b12" class="graf graf--p graf-after--pre">formatting strings</p><pre name="50be" id="50be" class="graf graf--pre graf-after--p">name = &quot;Dan&quot;<br>number = len(name)*7 <br>print(&quot;Hello {}, your lucky number is {}.&quot;.format(name, number))<br>print(&quot;Your lucky number is {num}, {name}&quot;.format(num = number, name=name))<br>number = 3.14159<br>print(&quot;use pi ={:&gt;5.2f}to&quot;.format(number))# &quot;use pi = 3.14to&quot;<br><br></pre><p name="f18d" id="f18d" class="graf graf--p graf-after--pre">string reference cheat sheet</p><p name="8257" id="8257" class="graf graf--p graf-after--p">formatting strings cheat sheet</p><pre name="0c9c" id="0c9c" class="graf graf--pre graf-after--p">#integer value<br>&#39;{:d}&#39;.format(10.5) → &#39;10&#39;</pre><pre name="82d9" id="82d9" class="graf graf--pre graf-after--pre">#floating point with that many decimals<br>&#39;{:.2f}&#39;.format(0.5) → &#39;0.50&#39;</pre><pre name="7271" id="7271" class="graf graf--pre graf-after--pre">#string with that many characters<br>&#39;{:.2s}&#39;.format(&#39;Python&#39;) → &#39;Py&#39;</pre><pre name="7517" id="7517" class="graf graf--pre graf-after--pre">#string aligned to the left that many spaces<br>&#39;{:&lt;6s}&#39;.format(&#39;Py&#39;) → &#39;Py    &#39;</pre><pre name="5166" id="5166" class="graf graf--pre graf-after--pre">#string aligned to the right that many spaces<br>&#39;{:&gt;6s}&#39;.format(&#39;Py&#39;) → &#39;    Py&#39;</pre><pre name="e695" id="e695" class="graf graf--pre graf-after--pre">#string centered in that many spaces<br>&#39;{:^6s}&#39;.format(&#39;Py&#39;) → &#39;  Py  &#39;</pre><p name="2ce3" id="2ce3" class="graf graf--p graf-after--pre">f-string</p><pre name="b09d" id="b09d" class="graf graf--pre graf-after--p">name = &quot;Dan&quot;<br>number = len(name)*7<br>print(f&quot;Hello {name}, your lucky number is {number}.&quot;)</pre><h4 name="66dc" id="66dc" class="graf graf--h4 graf-after--pre">list</h4><p name="6814" id="6814" class="graf graf--p graf-after--h4">lists and strings are both sequences.</p><pre name="5456" id="5456" class="graf graf--pre graf-after--p">for &lt;element&gt; in &lt;sequence&gt;<br>&lt;sequence&gt;[x]<br>len(&lt;sequence&gt;)<br>&lt;sequence&gt; + &lt;sequence&gt;<br>&lt;element&gt; in &lt;sequence&gt;</pre><p name="4d26" id="4d26" class="graf graf--p graf-after--pre">lists are mutable.</p><pre name="bb02" id="bb02" class="graf graf--pre graf-after--p">list1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]<br>list1.append(&quot;w&quot;) #[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;w&quot;]<br>list1.insert(0, &quot;x&quot;) #[&quot;x&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;w&quot;]<br>list1.insert(20, &quot;y&quot;) #[&quot;x&quot;, &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;w&quot;, &quot;y&quot;]<br>list1.remove(&quot;a&quot;) # [&quot;x&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;w&quot;, &quot;y&quot;]<br>list1.pop(2) # [&quot;x&quot;, &quot;b&quot;, &quot;d&quot;, &quot;w&quot;, &quot;y&quot;] return &quot;c&quot;<br>list1.sort()<br>list1.reverse()<br>list1.clear()<br>list1.copy()<br>list1.extend(&lt;other_list&gt;)</pre><p name="80a1" id="80a1" class="graf graf--p graf-after--pre">tuples are immutable similar to lists.</p><pre name="50fd" id="50fd" class="graf graf--pre graf-after--p">tuple1 = (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)<br>a, b, c = tuple1 # a = &quot;a&quot;, b = &quot;b&quot;, c = &quot;c&quot;, call unpacking</pre><p name="63f5" id="63f5" class="graf graf--p graf-after--pre">the functions that return multiple values are usually tuples.<br>they are immutable so order matters.</p><p name="dff6" id="dff6" class="graf graf--p graf-after--p">enumerate can be used in sequence</p><pre name="f1f7" id="f1f7" class="graf graf--pre graf-after--p">list1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]<br>for index, element in enumerate(list1):<br>    print(index, element, end=&quot;;&quot;) # 0 a;1 b;2 c;3 d;</pre><p name="0a8d" id="0a8d" class="graf graf--p graf-after--pre">list comprehensions<br>create new lists based on sequences or ranges</p><pre name="dc3e" id="dc3e" class="graf graf--pre graf-after--p">mutiples = [x*7 for x in range(1,6)] #[7, 14, 21, 28, 35]<br>z = [x for x in range(0, 11) if x % 3 == 0] #[0, 3, 6, 9]</pre><p name="9c17" id="9c17" class="graf graf--p graf-after--pre">lists and tuples operations cheat sheet</p><h4 name="04c3" id="04c3" class="graf graf--h4 graf-after--p">dictionary</h4><p name="6dcf" id="6dcf" class="graf graf--p graf-after--h4"><em class="markup--em markup--p-em">keys and values</em></p><pre name="a45e" id="a45e" class="graf graf--pre graf-after--p">x = {&quot;a&quot;:1, &quot;b&quot;:2, &quot;c&quot;:3}<br>x[&quot;a&quot;] # 1<br>&quot;b&quot; in x # True, find key only<br>x[&quot;d&quot;] = 4 # {&quot;a&quot;:1, &quot;b&quot;:2, &quot;c&quot;:3, &quot;d&quot;:4}<br>x[&quot;a&quot;] = 5 # {&quot;a&quot;:5, &quot;b&quot;:2, &quot;c&quot;:3, &quot;d&quot;:4}<br>del x[&quot;c&quot;] # {&quot;a&quot;:5, &quot;b&quot;:2, &quot;d&quot;:4}<br>x.get(&quot;c&quot;, 0) # 0. no &quot;c&quot;, return None or default<br>x.items() #key and value. it&#39;s iterator, use &lt;for...in...:&gt; to access <br>x.keys() #it&#39;s a iterator<br>x.value() #it&#39;s a iterator<br>x.update(&lt;other dictionary&gt;)<br>x.clean()</pre><p name="13f1" id="13f1" class="graf graf--p graf-after--pre">dictionary methods cheat sheet</p><p name="d164" id="d164" class="graf graf--p graf-after--p graf--trailing">sets</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/ff07843f4495"><time class="dt-published" datetime="2022-09-04T17:58:53.716Z">September 4, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/crash-course-on-python-week-4-ff07843f4495" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>

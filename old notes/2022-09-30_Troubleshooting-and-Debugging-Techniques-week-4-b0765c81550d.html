@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Troubleshooting and Debugging Techniques week 4</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Troubleshooting and Debugging Techniques week 4</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+memory leak: memory that is no longer needed is not released.
+garbage collector: in charge of freeing the memory that is no longer in use.
+</section>
+<section data-field="body" class="e-content">
+<section name="fe64" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="d304" id="d304" class="graf graf--h4 graf--leading">Troubleshooting and Debugging Techniques week 4</h4><p name="f0c1" id="f0c1" class="graf graf--p graf-after--h4">memory leak: memory that is no longer needed is not released.<br>garbage collector: in charge of freeing the memory that is no longer in use.</p><p name="8a77" id="8a77" class="graf graf--p graf-after--p">use profiler to figure out how the memory is being used.</p><p name="2dd1" id="2dd1" class="graf graf--p graf-after--p">latency: the time taken for a data packet to reach its destination after being sent. Affected by the physical distance and how many devices are in between. Transmitting many small pieces of data, aiming for less than 50ms. <br>bandwidth: the amount of data that can be transmitted and received during a specific period of time. determined by each endpoint and hop between them. Transmitting larger data need bigger bandwidth.<br>sometimes people use the term “throughput” to inform you of the number of packets actually sent and received.</p><pre name="fbd5" id="fbd5" class="graf graf--pre graf-after--p">$ top<br>#pressing shift+m in top, order the process by memory usage<br>#columns in top:<br>#RES: dynamic memory preserved for the process(usually indicates the<br># problem)<br>#SHR: memory shared across processes<br>#VIRT: all the virtual memory allocated for the process</pre><p name="f089" id="f089" class="graf graf--p graf-after--pre">profiling the memory of a multi-process app is extra hard.</p><pre name="1d38" id="1d38" class="graf graf--pre graf-after--p">from memory_profiler import profil<br>#one of the many deifferent profiler module<br>#use sys.getsizeof() for individual objects<br>#use the guppy module for entire Python app<br>@profil <br>#tell the profiler analyze the memory consumption of following function. @ call decorator, use to add extra behavior<br>def main():</pre><pre name="b367" id="b367" class="graf graf--pre graf-after--pre">#when run the app, it will show all the memory required in main()</pre><p name="cd11" id="cd11" class="graf graf--p graf-after--pre">Time management:<br><a href="https://blog.rescuetime.com/how-to-prioritize/" data-href="https://blog.rescuetime.com/how-to-prioritize/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://blog.rescuetime.com/how-to-prioritize/</a></p><p name="5eb2" id="5eb2" class="graf graf--p graf-after--p">make a list of all tasks!</p><p name="32fe" id="32fe" class="graf graf--p graf-after--p">Eisenhower Matrix: split tasks into two categories: urgent and important.</p><p name="1b6f" id="1b6f" class="graf graf--p graf-after--p">estimating the time task will take: rough estimate with a similar task before, be realistic and note it down.</p><p name="aa82" id="aa82" class="graf graf--p graf-after--p">communicating expectations: give them an idea of what and when you are going to do. try to be clear and upfront. if it is hard to estimate, give them a timely update.</p><p name="ad43" id="ad43" class="graf graf--p graf-after--p">use a ticket tracking system.</p><p name="c9d3" id="c9d3" class="graf graf--p graf-after--p">technical debate: when we choose a quick and easy solution instead of a long-term one.</p><p name="0ba8" id="0ba8" class="graf graf--p graf-after--p">some tips to make our future lives easier:<br>1. keep it clear and simple to understand.<br>2. develop code in small digestible chunks, stop and test often.<br>4. keep the goal clear, list it down first.<br>4. KEEP CALM AND CARRY ON<br>5. ask for help, or maybe explain the problem to a rubber duck. not to tell them what you think at first, for them to come up with different paths.</p><p name="d984" id="d984" class="graf graf--p graf-after--p">more proactive practices:<br>1. have an infrastructure and good test that makes problem-solving easier. <br>2. continuous integration and test environment.<br>3. deploy software in phases or canaries in case something went wrong.<br>4. having debugging logs, centralized logs collection, a good monitoring system, and ticketing systems.<br>5. document what you did.<br>6. monitoring resource usage and planning for the future.<br>7. migrate some parts or whole of systems to the cloud.</p><p name="341f" id="341f" class="graf graf--p graf-after--p graf--trailing">failure domains: a set of hardware components that share a single point of failure.</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/b0765c81550d"><time class="dt-published" datetime="2022-09-30T16:10:20.300Z">September 30, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/troubleshooting-and-debugging-techniques-week-4-b0765c81550d" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>

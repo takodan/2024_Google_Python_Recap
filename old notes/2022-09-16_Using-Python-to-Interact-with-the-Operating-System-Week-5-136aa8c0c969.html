@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Using Python to Interact with the Operating System Week 5</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Using Python to Interact with the Operating System Week 5</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Simple Tests
+</section>
+<section data-field="body" class="e-content">
+<section name="d3b9" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="ccd0" id="ccd0" class="graf graf--h4 graf--leading">Using Python to Interact with the Operating System Week 5</h4><h4 name="56b7" id="56b7" class="graf graf--h4 graf-after--h4">Simple Tests</h4><p name="13d6" id="13d6" class="graf graf--p graf-after--h4">some introduction</p><h4 name="fb9d" id="fb9d" class="graf graf--h4 graf-after--p">Unit Tests</h4><p name="d718" id="d718" class="graf graf--p graf-after--h4">used to verify the isolated parts of programs are correct.</p><pre name="a5af" id="a5af" class="graf graf--pre graf-after--p">from &lt;module&gt; import &lt;function&gt;<br>import unittest<br>class &lt;testname&gt;(unittest.TestCase):<br>    def &lt;tast1&gt;(self):<br>        &lt;tastcase&gt; = &lt;&gt;<br>        &lt;expected&gt; = &lt;&gt;<br>        self.assertEqual(&lt;function&gt;(&lt;tastcases&gt;), &lt;expected&gt;)</pre><pre name="f5a5" id="f5a5" class="graf graf--pre graf-after--pre">unittest.main()</pre><p name="0111" id="0111" class="graf graf--p graf-after--pre">Edge cases: a special case that makes errors, like input empty string.</p><p name="e75f" id="e75f" class="graf graf--p graf-after--p">Unit test cheat sheet<br><a href="https://docs.python.org/3/library/unittest.html#module-unittest" data-href="https://docs.python.org/3/library/unittest.html#module-unittest" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://docs.python.org/3/library/unittest.html#module-unittest</a></p><h4 name="a269" id="a269" class="graf graf--h4 graf-after--p">Test Concepts</h4><p name="d5dd" id="d5dd" class="graf graf--p graf-after--h4">white box test: the code is transparent. created alongside the development.<br>black box test: the code is opaque. can be created before the code.</p><p name="d2f4" id="d2f4" class="graf graf--p graf-after--p">integration test: a test with the overall system (best in the test environment).<br>regression test: a test that is written after identifying a bug.<br>smoke test: sanity check likes does program run or not.<br>load test: stressed test.<br>test suit: combine different tests.</p><p name="8a38" id="8a38" class="graf graf--p graf-after--p">test-driven development(TDD): creating the test before the code</p><p name="bb56" id="bb56" class="graf graf--p graf-after--p">google site reliability engineering books<br><a href="https://sre.google/books/" data-href="https://sre.google/books/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://sre.google/books/</a></p><p name="9e86" id="9e86" class="graf graf--p graf-after--p">more IT courses<br><a href="https://www.guru99.com/" data-href="https://www.guru99.com/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.guru99.com/</a></p><h4 name="dee4" id="dee4" class="graf graf--h4 graf-after--p">Errors and Exceptions</h4><pre name="7ae4" id="7ae4" class="graf graf--pre graf-after--h4">try:<br>    &lt;code&gt;<br>except &lt;errorType_name&gt;:<br>    &lt;code&gt; # if errorType_name happened in try<br>else:<br>    &lt;code&gt; # if no error in try</pre><pre name="8bee" id="8bee" class="graf graf--pre graf-after--pre"><br>raise &lt;errorType_name&gt;(&quot;&lt;string&gt;&quot;)<br># raise the error and the message string</pre><pre name="b36d" id="b36d" class="graf graf--pre graf-after--pre"><br>assert &lt;condition&gt;, &quot;&lt;string&gt;&quot;<br># if the condition is False, raise the assertionError and the message string</pre><pre name="35bc" id="35bc" class="graf graf--pre graf-after--pre">import unittest<br>class &lt;testname&gt;(unittest.TestCase):<br>    def &lt;tast1&gt;(self):<br>        self.asertRaises(&lt;errorType_name&gt;, &lt;function&gt; , &lt;tastcases&gt;)<br>        # does function raise the error with tastcases</pre><p name="5e22" id="5e22" class="graf graf--p graf-after--pre">Handling errors cheat sheet</p><p name="cdc9" id="cdc9" class="graf graf--p graf-after--p graf--trailing"><a href="https://docs.python.org/3/tutorial/errors.html#errors-and-exceptions" data-href="https://docs.python.org/3/tutorial/errors.html#errors-and-exceptions" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://docs.python.org/3/tutorial/errors.html#errors-and-exceptions</a><br><a href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions" data-href="https://docs.python.org/3/library/exceptions.html#bltin-exceptions" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://docs.python.org/3/library/exceptions.html#bltin-exceptions</a><br><a href="https://doughellmann.com/posts/python-exception-handling-techniques/" data-href="https://doughellmann.com/posts/python-exception-handling-techniques/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://doughellmann.com/posts/python-exception-handling-techniques/</a></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/136aa8c0c969"><time class="dt-published" datetime="2022-09-16T08:05:04.448Z">September 16, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/using-python-to-interact-with-the-operating-system-week-5-136aa8c0c969" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>

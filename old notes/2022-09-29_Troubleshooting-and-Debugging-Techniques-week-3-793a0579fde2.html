@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Troubleshooting and Debugging Techniques week 3</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Troubleshooting and Debugging Techniques week 3</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+debug logging: enable on apps to get more information.
+</section>
+<section data-field="body" class="e-content">
+<section name="b418" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="0a46" id="0a46" class="graf graf--h4 graf--leading">Troubleshooting and Debugging Techniques week 3</h4><p name="11cb" id="11cb" class="graf graf--p graf-after--h4">debug logging: enable on apps to get more information.</p><p name="8d38" id="8d38" class="graf graf--p graf-after--p">strace: system calls on Linux<br>dtruss: macOS<br>process monitor: windows</p><p name="bb95" id="bb95" class="graf graf--p graf-after--p">to find the root cause:<br>1. look at logs<br>2. figure out what changed<br>3. trace the system or library calls<br>4. create a reproduction case</p><p name="eb21" id="eb21" class="graf graf--p graf-after--p">check:<br>1. overall system environment<br>2. app configuration<br>3. app inputs, app outputs<br>4. resources use<br>5. services app communicates with</p><p name="aefb" id="aefb" class="graf graf--p graf-after--p">wapper: provides a compatibility layer between two programs.</p><p name="8858" id="8858" class="graf graf--p graf-after--p">try running the app in a virtual machine or a container that matches the recommended system.</p><p name="b5f4" id="b5f4" class="graf graf--p graf-after--p">try deploying a watchdog to check whether an app is running or not, when the app crashes restart it.</p><p name="9eb5" id="9eb5" class="graf graf--p graf-after--p"><a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers" data-href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers</a></p><pre name="bd26" id="bd26" class="graf graf--pre graf-after--p">$ sudo netstat -nlp | grep :80<br>#n numerical addresses<br>#l sockets that are listening for connection<br>#p process ID and name witch each socket belongs<br>#:80 looking for port 80<br>/etc/&lt;app folder&gt; #common location for app configuration</pre><p name="1233" id="1233" class="graf graf--p graf-after--pre">logs on different OS:<br><a href="https://www.digitalmastersmag.com/magazine/tip-of-the-day-how-to-find-crash-logs-on-windows-10/" data-href="https://www.digitalmastersmag.com/magazine/tip-of-the-day-how-to-find-crash-logs-on-windows-10/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.digitalmastersmag.com/magazine/tip-of-the-day-how-to-find-crash-logs-on-windows-10/</a><br><a href="https://www.howtogeek.com/356942/how-to-view-the-system-log-on-a-mac/" data-href="https://www.howtogeek.com/356942/how-to-view-the-system-log-on-a-mac/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.howtogeek.com/356942/how-to-view-the-system-log-on-a-mac/</a><br><a href="https://www.fosslinux.com/8984/how-to-check-system-logs-on-linux-complete-usage-guide.htm" data-href="https://www.fosslinux.com/8984/how-to-check-system-logs-on-linux-complete-usage-guide.htm" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.fosslinux.com/8984/how-to-check-system-logs-on-linux-complete-usage-guide.htm</a></p><p name="8013" id="8013" class="graf graf--p graf-after--p">trace system calls on different OS:<br><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procmon" data-href="https://docs.microsoft.com/en-us/sysinternals/downloads/procmon" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://docs.microsoft.com/en-us/sysinternals/downloads/procmon</a><br><a href="https://etcnotes.com/posts/system-call/" data-href="https://etcnotes.com/posts/system-call/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://etcnotes.com/posts/system-call/</a><br><a href="https://www.howtoforge.com/linux-strace-command/" data-href="https://www.howtoforge.com/linux-strace-command/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://www.howtoforge.com/linux-strace-command/</a></p><p name="fbd5" id="fbd5" class="graf graf--p graf-after--p">accessing invalid memory: process tried to access memory that wasn’t assigned to it.<br>segmentation fault(segfault), general protection fault: common error messages when accessing invalid memory.</p><p name="baf2" id="baf2" class="graf graf--p graf-after--p">downloading the debugging symbols for the app or the library, and attaching a debugger to it.</p><p name="d10d" id="d10d" class="graf graf--p graf-after--p">Windows debugging symbols: PDB file.</p><p name="1aa5" id="1aa5" class="graf graf--p graf-after--p">tools: Valgrind(Linux, macOS), Dr. Memory(Linux, Windows)</p><p name="422e" id="422e" class="graf graf--p graf-after--p">printf debugging: in Python, we can use the logging module to help.</p><pre name="544b" id="544b" class="graf graf--pre graf-after--p">$ ulimit -c unlimited <br>#set core file limit to unlimited so it can generate core file<br>$ gdb -c core &lt;app&gt; #gdb is a debugger for C/c++ call&quot;gnu debugger&quot;</pre><pre name="b6f9" id="b6f9" class="graf graf--pre graf-after--pre">#inside the gdb<br>(gdb) backtrace #show the full backtrace<br>(gdb) up #move to the calling function in backtrace<br>(gdb) list #show lines around the current one<br>(gdb) print &lt;variable&gt; #show variable value when crashing</pre><p name="ebd2" id="ebd2" class="graf graf--p graf-after--pre">off by one error: an iterative loop iterates one time too many or too few.</p><p name="61bf" id="61bf" class="graf graf--p graf-after--p">Python shows exceptions when a program failed.</p><pre name="71a5" id="71a5" class="graf graf--pre graf-after--p">$ pdb3 &lt;app&gt; &lt;parameter&gt; #Python Debugger</pre><pre name="f29b" id="f29b" class="graf graf--pre graf-after--pre">#inside the pdb<br>(pdb) next #read line by line<br>(pdb) continue #until it either finishes or crashes<br>(pdb) print(&lt;variable&gt;) #show variable value</pre><p name="0569" id="0569" class="graf graf--p graf-after--pre"><a href="https://stackoverflow.com/questions/33047452/definitive-list-of-common-reasons-for-segmentation-faults" data-href="https://stackoverflow.com/questions/33047452/definitive-list-of-common-reasons-for-segmentation-faults" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://stackoverflow.com/questions/33047452/definitive-list-of-common-reasons-for-segmentation-faults</a></p><p name="ed66" id="ed66" class="graf graf--p graf-after--p">communicate with those affected by the issue.<br>timely updates on the state and when it will be fixed.<br>documenting what you did during incidents.</p><p name="b962" id="b962" class="graf graf--p graf-after--p">incident commander/controller: look at the big picture and decide what is the best use of available resources.</p><p name="bbd8" id="bbd8" class="graf graf--p graf-after--p graf--trailing">postmortem: a fancy word for details documentation, to prevent the same issue from happening again. may include but are not limited to:<br>1. what went wrong<br>2. root cause<br>3. what was the impact of the issue<br>4. how it got diagnosed<br>5. short-term remediation<br>6. long-term remediation<br>7. what needs to be done to prevent the problem from happening again</p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/793a0579fde2"><time class="dt-published" datetime="2022-09-29T12:54:37.891Z">September 29, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/troubleshooting-and-debugging-techniques-week-3-793a0579fde2" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>

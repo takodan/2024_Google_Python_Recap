@@ -1,0 +1,74 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Configuration Management and the Cloud week 3</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Configuration Management and the Cloud week 3</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+cloud services types:
+1. software as a service (SaaS): deliver an entire app to the customer. the cloud provider manages everything.
+2…
+</section>
+<section data-field="body" class="e-content">
+<section name="e82f" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 name="d7c5" id="d7c5" class="graf graf--h4 graf--leading">Configuration Management and the Cloud week 3</h4><p name="74a4" id="74a4" class="graf graf--p graf-after--h4">cloud services types:<br>1. software as a service (SaaS): deliver an entire app to the customer. the cloud provider manages everything.<br>2. platform as a service (PaaS): offers a preconfigured platform to the customer. like an SQL database as a service.<br>3. infrastructure as a service(IaaS): supplies only the bare-bones computing experience. let you run virtual machines in the cloud.</p><p name="9256" id="9256" class="graf graf--p graf-after--p">consider databases regions for latency and policy reasons.</p><p name="b2fd" id="b2fd" class="graf graf--p graf-after--p">queries per second (QPS)</p><p name="9a02" id="9a02" class="graf graf--p graf-after--p">it is easier to scale in the cloud rather than on-premise.</p><p name="5a71" id="5a71" class="graf graf--p graf-after--p">horizontal scaling: add or remove servers.<br>vertically scaling: make servers bigger or smaller.</p><p name="2045" id="2045" class="graf graf--p graf-after--p">containers: apps that are packaged together with their configuration and dependencies.</p><p name="15c8" id="15c8" class="graf graf--p graf-after--p">public, private, hybrid, and multi-cloud.</p><p name="e483" id="e483" class="graf graf--p graf-after--p">reference images: store the contents of a machine in a reusable format. if it is a snapshot of a disk, call disk image.<br>templating: capturing all of the system configurations to let us create VMs in a repeatable way.</p><p name="3694" id="3694" class="graf graf--p graf-after--p">etc/systemd/system/ is the default systemd directory in many Linux distros.</p><p name="abd3" id="abd3" class="graf graf--p graf-after--p">managing instances in the Cloud:<br>1. create a VM in IaaS (in the web wizard).<br>2. set up the VM (in the terminal, connect to VM).<br>3. create an image of the VM (in the web wizard).<br>4. use the image to create an instance template (in the web wizard).<br>5. create a new VM for the template (in the web wizard).<br>6. or using the command provided by the service in the terminal.</p><p name="afc8" id="afc8" class="graf graf--p graf-after--p">more detail on creating a VM in google cloud:<br><a href="https://cloud.google.com/compute/docs/quickstart-linux" data-href="https://cloud.google.com/compute/docs/quickstart-linux" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://cloud.google.com/compute/docs/quickstart-linux</a><br><a href="https://cloud.google.com/compute/docs/instances/create-vm-from-instance-template" data-href="https://cloud.google.com/compute/docs/instances/create-vm-from-instance-template" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://cloud.google.com/compute/docs/instances/create-vm-from-instance-template</a><br><a href="https://cloud.google.com/sdk/docs" data-href="https://cloud.google.com/sdk/docs" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://cloud.google.com/sdk/docs</a></p><p name="ed09" id="ed09" class="graf graf--p graf-after--p">load balancer: balance requests.</p><p name="c99d" id="c99d" class="graf graf--p graf-after--p">Round robin: a strategy load balancer use, give each node one request.</p><p name="86f6" id="86f6" class="graf graf--p graf-after--p">autoscaling: when scaling, some nodes will be considered ephemeral. content to a database to get the data if data is missing.</p><p name="53a3" id="53a3" class="graf graf--p graf-after--p">content to a site:<br>1. retrieve an IP address that identifies the entry point for the sites. a single website could have several entry points.<br>2. web cache with a load balancer (Varnish cache or service like Cloudflare and Fastly).<br>3. if the info being requested is not in caches, go to the web service with a load balancer to get the actual web services.<br>4. web services may connect to the database and/or DB cache (Memcached and Redis).</p><p name="3e36" id="3e36" class="graf graf--p graf-after--p">orchestration: the automated configuration and coordination of complex IT systems and services, by making infrastructure as code (Terraform or other tools provided by cloud vendors). normally also need to use an API to do this.<br>hybrid cloud: only part of services are in the cloud.</p><p name="45de" id="45de" class="graf graf--p graf-after--p graf--trailing"><a href="https://cloud.google.com/docs/terraform/get-started-with-terraform" data-href="https://cloud.google.com/docs/terraform/get-started-with-terraform" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://cloud.google.com/docs/terraform/get-started-with-terraform</a><br><a href="https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances" data-href="https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-unmanaged-instances</a><br><a href="https://cloud.google.com/load-balancing/docs/https/" data-href="https://cloud.google.com/load-balancing/docs/https/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://cloud.google.com/load-balancing/docs/https/</a><br><a href="https://geekflare.com/gcp-load-balancer/" data-href="https://geekflare.com/gcp-load-balancer/" class="markup--anchor markup--p-anchor" rel="nofollow noopener" target="_blank">https://geekflare.com/gcp-load-balancer/</a></p></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@dannyo0311" class="p-author h-card">DannyChang</a> on <a href="https://medium.com/p/fd2e8f4c8c6a"><time class="dt-published" datetime="2022-10-05T12:58:08.200Z">October 5, 2022</time></a>.</p><p><a href="https://medium.com/@dannyo0311/configuration-management-and-the-cloud-week-3-fd2e8f4c8c6a" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on July 24, 2024.</p></footer></article></body></html>
