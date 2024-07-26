@@ -64,3 +64,8 @@
 - **dict.values()** - Returns a sequence containing the values in the dictionary
 - **dict.update(other_dictionary)** - Updates the dictionary with the items coming from the other dictionary. Existing entries will be replaced; new entries will be added.
 - **dict.clear()** - Removes all the items of the dictionary
+
+## additional information
+### OOP: inheritance and composition
+https://www.geeksforgeeks.org/inheritance-in-python/
+https://realpython.com/inheritance-composition-python/
