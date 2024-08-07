@@ -1,11 +1,10 @@
-## additional information
-### CSV
+## CSV
 https://realpython.com/python-csv/
 
-### re.search() VS re.findall()
+## re.search() VS re.findall()
 https://www.geeksforgeeks.org/python-regex-re-search-vs-re-findall/
 
-### subprocess
+## subprocess
 https://www.geeksforgeeks.org/python-subprocess-module/
 https://www.datacamp.com/tutorial/python-subprocess
 https://realpython.com/python-subprocess/
